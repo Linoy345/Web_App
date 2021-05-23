@@ -37,6 +37,8 @@
 	  position: absolute;
 	  left: 50%;
 	  transform: translate(-50%, -50%);
+	  border-radius: 15px;
+	  text-align: center;
 	}
 
 	.box select {
@@ -50,6 +52,7 @@
 	  -webkit-appearance: button;
 	  appearance: button;
 	  outline: none;
+	  border-radius: 15px;
 	}
 
 	.box::before {
@@ -66,20 +69,24 @@
 	  color: rgba(255, 255, 255, 0.5);
 	  background-color: rgba(255, 255, 255, 0.1);
 	  pointer-events: none;
+	  border-radius: 15px;
 	}
 
 	.box:hover::before {
 	  color: rgba(255, 255, 255, 0.6);
 	  background-color: rgba(255, 255, 255, 0.2);
+	  text-align: center;
 	}
 
 	.box select option {
 	  padding: 30px;
+	  text-align: center;
 	}
 	.input {
   		background-color: #4CAF50; /* Green */
   		border: none;
   		color: white;
+  		width: 180px;
   		padding: 7px 16px;
   		text-align: center;
   		text-decoration: none;
@@ -107,13 +114,11 @@
 	.input2:hover {
   		background-color: #008CBA;
   		color: white;
-  		
-  		
 	}
 	
 	</style>
 </head>
-<body background="flight2.png">
+<body background="flight4.png">
 	<br /><br /><br /><br />
 	<h1 align="center">
 		<font face="Tahoma" color="0E193F" size="7">
@@ -127,27 +132,26 @@
 		</font>
 	</h3>
 	<form align="center" action="get">
-  		<input type="button"  class="input input2" value="CSV" onclick="document.getElementById('file').click();" />
+  		<input type="button"  class="input input2" value="Choose Learn File" onclick="document.getElementById('file').click();" />
 		<input type="file" style="display:none;" id="file" name="file"/>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<input class="input input2" type="button" value="Anomaly" onclick="document.getElementById('file').click();" />
+		<input class="input input2" type="button" value="Choose Detect File" onclick="document.getElementById('file').click();" />
 		<input type="file" style="display:none;" id="file" name="file"/>
 	<form/>
   		
 	<br><br><br><br>
 
 	<div class="box">
-		<label for="Algo">Choose an algorithm:</label>
+		<label style="font-family:Tahoma">Choose an algorithm:</label>
 		<br>
-		<select id="Algo">
+		<select >
 	  		<option value="Simple">Simple Anomaly Detection</option>
 	  		<option value="Circle">Circle Anomaly Detection</option>
-	  		
 		</select>
 	</div>
 	<br>
 
-	<table class="names" style="font-family:verdana;">
+	<table class="names" style="font-family:verdana">
 	  <tr>
 	    <th>Row Number</th>
 	    <th>Correlate Features</th> 
