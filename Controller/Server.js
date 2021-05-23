@@ -1,7 +1,8 @@
 //imports modules
 const express = require('express')
 const path = require('path')
-const view = path.resolve('../View/index.html')
+const index = path.resolve('../View/index.html')
+const view = path.resolve('../View')
 const fileUpload = require('express-fileupload')
 const detector = require('../Model/Detector')
 const app = express()
@@ -9,13 +10,14 @@ const app = express()
 app.use(express.urlencoded({
     extended: false
 }))
+app.use(express.static(view));
 
 // TODO: make app asynchronous.
 app.use(fileUpload({}))
 app.use(express.static('View'))
 //Get Method for '/' url
 app.get('/', (req, res) => {
-    res.sendFile(view) // TODO: Change to Gitit view file.
+    res.sendFile(index) // TODO: Change to Gitit view file.
 })
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
