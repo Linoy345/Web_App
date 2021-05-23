@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="../Model/Detector.js"></script>
 	<meta charset="utf-8">
 	<title>
 		Anomaly Detection
@@ -94,7 +95,7 @@
   		<input class="input input2" type="button" id="loadFileXml" value="Anomaly" onclick="document.getElementById('file').click();" />
 		<input type="file" style="display:none;" id="file" name="file"/>
 		&nbsp&nbsp&nbsp
-  		<input class="input input2" type="submit">
+  		<input onclick="test();" class="input input2" type="submit">
 	</form>
 	<label for="Algo">Choose an algorithm:</label>
 

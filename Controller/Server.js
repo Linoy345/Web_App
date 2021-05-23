@@ -1,5 +1,7 @@
 //imports modules
 const express = require('express')
+const path = require('path')
+const view = path.resolve('../View/index.html')
 const fileUpload = require('express-fileupload')
 const detector = require('../Model/Detector')
 const app = express()
@@ -13,7 +15,7 @@ app.use(fileUpload({}))
 app.use(express.static('View'))
 //Get Method for '/' url
 app.get('/', (req, res) => {
-    res.sendFile('index.html') // TODO: Change to Gitit view file.
+    res.sendFile(view) // TODO: Change to Gitit view file.
 })
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {

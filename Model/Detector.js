@@ -14,4 +14,8 @@ const cpp = 5 //// TODO : make this connection to cpp api.
     function close(){
         cpp.closeConnection();
     }
+    function test() {
+        alert("aaaaaa")
+    }
+
 module.exports = {algorithm_Setting, learn, detect, open, close};
