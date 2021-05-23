@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>
+		Anomaly Detection
+	</title>
+	<style>
+	table {
+  		width:80%;
+  		margin: 25px auto;
+  		box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+     		0px 10px 20px rgba(0,0,0,0.05),
+     		0px 20px 20px rgba(0,0,0,0.05),
+     		0px 30px 20px rgba(0,0,0,0.05);
+	}
+	table, th, td {
+ 	 	border: 2px solid black;
+  		border-collapse: collapse;
+	}
+	th, td {
+  		padding: 5px;
+  		text-align: center;
+	}
+	table.names tr:nth-child(even) {
+  		background-color: #D5F2FB;
+	}
+	table.names tr:nth-child(odd) {
+  		background-color:#98D3E5;
+	}
+	table.names th {
+  		background-color: #008CBA;
+  		color: white
+
+	}
+	.input {
+  		background-color: #4CAF50; /* Green */
+  		border: none;
+  		color: white;
+  		padding: 7px 16px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		margin: 4px 2px;
+  		transition-duration: 0.4s;
+  		cursor: pointer;
+  		box-shadow: 0 5px #999;
+  		border-radius: 15px;
+  		
+	}
+	.input2 {
+  		background-color: #D9E4FF; 
+  		color: black; 
+  		border: 2px solid #008CBA;
+	}
+
+	.input2:active {
+  		background-color: #3e8e41;
+  		box-shadow: 0 2px #666;
+  		transform: translateY(4px);
+	}
+
+	.input2:hover {
+  		background-color: #008CBA;
+  		color: white;
+  		
+  		
+	}
+	
+	</style>
+</head>
+<body background="flight.png">
+	<br /><br /><br /><br />
+	<h1 align="center">
+		<font face="Tahoma" color="0E193F" size="7">
+			Anomaly Detection
+		</font>
+		
+	</h1>
+	<h3 align="center">
+		<font face="Tahoma" color="0E0A54" size="5">
+			Upload your files
+		</font>
+	</h3>
+	<form align="center" action="/action_page.php">
+  		<input type="button"  class="input input2" value="CSV" onclick="document.getElementById('file').click();" />
+		<input type="file" style="display:none;" id="file" name="file"/>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  		<input class="input input2" type="submit" >
+	</form>
+	<br />
+	<form align="center" action="/action_page.php">
+  		<input class="input input2" type="button" id="loadFileXml" value="Anomaly" onclick="document.getElementById('file').click();" />
+		<input type="file" style="display:none;" id="file" name="file"/>
+		&nbsp&nbsp&nbsp
+  		<input class="input input2" type="submit">
+	</form>
+<br>
+
+<table class="names" style="font-family:verdana;">
+  <tr>
+    <th>Row Number</th>
+    <th>Correlate Features</th> 
+  </tr>
+  <tr>
+    <td>73</td>
+    <td>A-B</td>
+    
+  </tr>
+  <tr>
+    <td>133</td>
+    <td>C-D</td>
+    
+  </tr>
+  <tr>
+    <td>135</td>
+    <td>C-D</td>
+    
+  </tr>
+</table>
+
+</body>
+</html>
