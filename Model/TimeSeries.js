@@ -3,16 +3,15 @@ class TimeSeries {
 		this.ts = []
 		var temp = csv.split("\n")
 		temp.forEach(element => this.ts.push(element.split(",")));
-		console.log(temp)
-		this.NumOfColumns = temp[0].length;
+		this.NumOfColumns = this.ts[0].length;
 		this.NumOfRows = temp.length - 1;
 		this.map = {}
 		for (var i = 0; i < this.NumOfColumns; i++) {
-			this.map[temp[0][i]] = i;
+			this.map[this.ts[0][i]] = i;
 		}
 
 		this.FindValue = function (name, row) {
-			return this.ts[row + 1][map[name]];
+			return this.ts[row + 1][this.map[name]];
 		}
 
 		this.FindValueByIndex = function (index, row) {
@@ -23,7 +22,7 @@ class TimeSeries {
 			return this.ts[0];
 		}
 
-		this.GetColumnNameByIndex = function (index) {
+		this.GetColumnByIndex = function (index) {
 			var x = [];
 			for (var i = 1; i < this.NumOfRows + 1; i++) {
 				x.push(this.ts[i][index])
@@ -31,8 +30,9 @@ class TimeSeries {
 			return x;
 		}
 
-		this.GetColumnName = function (name) {
-			return this.GetColumnNameByIndex(this.map[name])
+		this.GetColumn = function (name) {
+			console.log(this.map)
+			return this.GetColumnByIndex(this.map[name])
 		}
 
 		this.GetRow = function (index) {
