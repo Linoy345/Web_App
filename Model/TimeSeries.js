@@ -1,35 +1,43 @@
-var fs = require('fs');
-var csv = require('csv');
-const parser = require("csv-parse");
 class TimeSeries {
-	constructor(csvFilePath) {
+	constructor(csv) {
 		this.ts = []
-		this.NumOfColumns = 0;
-		var readStream = fs.createReadStream(csvFilePath);
-		const output = []
-		// Create the parser
-		const parser = parse({
-			delimiter: ','
-		})
-		parse({}).
-		// Use the readable stream api
-		parser.on('readable', function () {
-			let record
-			record = parser.read()
-			this.NumOfColumns = record.length;
-			for (i = 0; i < this.NumOfColumns; i++) {
-				this.ts.push(record[i])
+		csv = csv.replaceAll("\r","")
+		temp = csv.split("\n")
+		temp.forEach(element => this.ts.push(element.split(",")));
+		this.NumOfColumns = temp[0].length;
+		this.NumOfRows = temp.length - 1;
+		this.map = {}
+		for (i = 0; i < this.NumOfColumns; i++) {
+			this.map[temp[0][i]] = i;
+		}
+
+		this.FindValue = function (name, row) {
+			return this.ts[row + 1][map[name]];
+		}
+
+		this.FindValueByIndex = function (index, row) {
+			return this.ts[row + 1][index]
+		}
+
+		this.GetColumnNames = function () {
+			return this.ts[0];
+		}
+
+		this.GetColumnNamesByIndex = function (index) {
+			x = [];
+			for (i = 1; i < this.NumOfRows + 1; i++) {
+				x.push(this.ts[i][index])
 			}
-			while (record = parser.read()) {
-				for (i = 0; i < this.NumOfColumns; i++) {
-					this.ts[i] = record[i];
-				}
-			}
-		})
-		// Catch any error
-		parser.on('error', function (err) {
-			console.error(err.message)
-		})
-		parser.end()
+			return x;
+		}
+
+		this.GetColumnNames = function (name) {
+			return this.GetColumnNamesByIndex(this.map[name])
+		}
+
+		this.GetRow = function (index) {
+			return this.ts[index + 1];
+		}
 	}
+
 }

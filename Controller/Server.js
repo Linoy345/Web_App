@@ -21,7 +21,6 @@ app.get('/', (req, res) => {
 })
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
-    res.write('searching for ' + req.body.key + +':\n')
     let learnFile = req.body.learnFile;
     let detectFile = req.body.detectFile;
     let setting = req.body.setting;
