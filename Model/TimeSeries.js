@@ -1,13 +1,13 @@
 class TimeSeries {
 	constructor(csv) {
 		this.ts = []
-		csv = csv.replaceAll("\r","")
-		temp = csv.split("\n")
+		var temp = csv.split("\n")
 		temp.forEach(element => this.ts.push(element.split(",")));
+		console.log(temp)
 		this.NumOfColumns = temp[0].length;
 		this.NumOfRows = temp.length - 1;
 		this.map = {}
-		for (i = 0; i < this.NumOfColumns; i++) {
+		for (var i = 0; i < this.NumOfColumns; i++) {
 			this.map[temp[0][i]] = i;
 		}
 
@@ -23,21 +23,20 @@ class TimeSeries {
 			return this.ts[0];
 		}
 
-		this.GetColumnNamesByIndex = function (index) {
-			x = [];
-			for (i = 1; i < this.NumOfRows + 1; i++) {
+		this.GetColumnNameByIndex = function (index) {
+			var x = [];
+			for (var i = 1; i < this.NumOfRows + 1; i++) {
 				x.push(this.ts[i][index])
 			}
 			return x;
 		}
 
-		this.GetColumnNames = function (name) {
-			return this.GetColumnNamesByIndex(this.map[name])
+		this.GetColumnName = function (name) {
+			return this.GetColumnNameByIndex(this.map[name])
 		}
 
 		this.GetRow = function (index) {
 			return this.ts[index + 1];
 		}
 	}
-
 }
