@@ -30,69 +30,32 @@ Now to use the app go to your favorite web browser and connect to the server wit
 
 A screenshot is attached:
 
-![WhatsApp Image 2021-04-14 at 14 46 20](https://user-images.githubusercontent.com/59093573/114705659-a197c000-9d30-11eb-9fe0-e7c373cb07cc.jpeg)
+![Main_Screen.png](Images/Main_Screen.png)
 
-Make sure to click the ```Fly``` button and wait to see the following screen before you continue:
-
-![WhatsApp Image 2021-04-14 at 14 34 38](https://user-images.githubusercontent.com/59093573/114744166-13363500-9d56-11eb-853f-10d9413cc543.jpeg)
-
-Now, in the ```Visual Studio``` click the ```Start``` button to clean and build the project, and the following window will pop up:
-
-![Screenshot 2021-04-14 231655](https://user-images.githubusercontent.com/59093573/114773305-8f8d4000-9d77-11eb-9725-c69ab06d2868.jpg)
-
-
-
+Make sure to click the ```Submit``` button after uploading files and choosing algorithm setting.
 
 ## Features
-- Choosing CSV - click on the ```Open CSV``` button to start your flight. You will be asked to choose a CSV file that contains the flight info (a CSV file in which flight data sampled at some rate is recorded).
+- Choosing Learn file CSV - click on the ```Choose Learn File```. You will be asked to choose a CSV file that contains the flight info (a CSV file in which flight data sampled at some rate is recorded).
   You can use one of our demo CSV files: 
-  1. https://github.com/Gitit-Shapira/Flightgear/blob/main/anomaly_flight.csv - file that containing the anomaly.
-  2. that is located in the following path:  https://github.com/Gitit-Shapira/Flightgear/blob/main/reg_flight.csv - file that not containing the anomaly. 
-- Choosing XML - click on the ```Open XML``` button and choose XML file from your system :
-- Joystick - the movements of the flight is done according to the X and Y coordinates (from the CSV file)
-- Flight Data - This Lets you see some different data:
-    - Flight altitude
-    - Flight speed
-    - Flight direction
-    - Yaw, roll, and pitch info
-- Control bar:
-    - Speed value - you can set the speed of the flight by selecting an option in the right corner drop-down button called ```Play Speed```
-
-    - Play button - Use the ```Play``` button to resume the flight after the ```Stop``` or ```Pause``` button was clicked.
-    - Pause button - Click the ```Pause``` button to freeze the flight.
-    - Stop button - When the ```Stop``` button is pressed, the flight is being frozen, but now by clicking the ```Play``` button the flight will start from the beginning.
-    - Slide bar - Allow you to move the tick along with the slider, and then the flight will jump to the corresponding time CSV line according to its position you chose.
-- Flight parameters graphs: The graph is affected by the values of the flight parameter, so you can play with them and then the graph will be updated accordingly, which is presenting the progression of its value through the flight.
-- Anomaly detector - This allows you to select an anomaly detection algorithm. The algorithm will detect at what moments in time an anomaly occurred and will mark it prominently so that you can effectively jump into that moment in time and investigate it.
-
-
+  1. https://github.com/Gitit-Shapira/Flightgear/blob/main/anomaly_flight.csv - file that containing the learning data.
+  2. https://github.com/Gitit-Shapira/Flightgear/blob/main/reg_flight.csv - real Flight Data for anomalies detection. 
+- Anomaly detector - This allows you to select an anomaly detection algorithm. The algorithm will detect at what moments in time an anomaly occurred and will display it in a list.
 
 ## Project Hierarchy
 
 The main files in our project are as follow:
 
-- Model:
-    - IFlightgearMonitorModel.cs - interface for the model in the architecture MVVM
-    - MyFlightgearMonitorModel - class which implements the IFlightgearMonitorModel interface
-- View Model
-    - ViewModel.cs -  All other ViewModels inherit this ViewModel class.
-    - MainWindowViewModel.cs - The main view model
-    - FlightDataViewModel.cs - The view model of flight information.
-    - FlightgearMonitorViewModel.cs - viewModel of the control bar (Playback speed, play/stop buttons, playback slider).
-    - GraphsViewModel.cs - The view model of graphs presented to the user.
-    - JoystickViewModel.cs - The view model of the Joystick    -
+- Controller:
+    - Server.js - Web app server.
+- Model
+
+
+
 - View:
-    - GraphsView - responsible to display the graphs
-    - FlightDetails - responsible to display the flight information.
-    - ControlBar - responsible to display the control bar, which consists of the Play, Pause, Stop buttons, the slider, and the play speed.
-    - Joystick - responsible to display the joystick
-    - MainWindow -  responsible to display the main screen which contains the menu.
+    - index.html - Display the app screen.
 
 ## More documentation
-- UML: https://github.com/Gitit-Shapira/Flightgear/blob/main/uml%20flightgear%20project.pdf
-- Control Bar: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/ControlBar.md
-- Joystick: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Joystick.md
-- Graph: https://github.com/Gitit-Shapira/Flightgear/blob/main/FlightMonitor/Graph.md
+- UML:
 
 
 
@@ -103,8 +66,8 @@ https://youtu.be/lSMXU8fLzJ0
 ## Writers
 - Gitit Shapira
 - Roey Peleg
-- Dvir Asaf
-- Or Memia
+- Linoy Sela
+- Yair Yardeni
 
 
 
