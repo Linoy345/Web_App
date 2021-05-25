@@ -9,11 +9,5 @@ function learn(learnFile) {
 function detect(detectFile) {
     return ts.detect(detectFile);
 }
-function open(){
-    
-}
-function close(){
-    
-}
 
-module.exports = {algorithm_Setting, learn, detect, open, close};
+module.exports = {algorithm_Setting, learn, detect};

@@ -21,14 +21,16 @@ app.get('/', (req, res) => {
 })
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
-    let learnFile = req.body.learnFile;
-    let detectFile = req.body.detectFile;
-    let setting = req.body.setting;
-    detector.open();
+    let settingBinery = Buffer.from(req., 'binary').toString('base64'); // todo: get algorithm setting
+    let setting = Buffer.from(settingBinery, 'base64').toString();
+    let LearnFileBinery = Buffer.from(req., 'binary').toString('base64'); //todo: get learnFile  setting
+    let LearnFile = Buffer.from(LearnFileBinery, 'base64').toString();
+    let DetectFileBinery = Buffer.from(req., 'binary').toString('base64'); //todo: get learnFile  setting
+    let DetectFile = Buffer.from(DetectFileBinery, 'base64').toString();
     detector.algorithm_Setting(setting);
-    detector.learn(learnFile);
-    res.write(JSON.stringify(detector.detect(detectFile)));
-    res.end()
+    detector.learn(LearnFile);
+    res.write(JSON.stringify(detector.detect(DetectFile))); // Todo: convert string to binary.
+    res.end();
 })
 //starting server on port 8080
 app.listen(8080, ()=>console.log("server started at 8080"))
