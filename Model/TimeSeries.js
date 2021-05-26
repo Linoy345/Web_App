@@ -84,10 +84,6 @@ class AnomalyReport {
 			var s = description;
 			s += ",";
 			s += timeStep;
-			s += ",";
-			s += val1;
-			s += ",";
-			s += val2;
 			return s;
 		};
 	} 
