@@ -1,4 +1,4 @@
-const ts = require('TimeSeries');
+const ts = require('./TimeSeries');
 function algorithm_Setting(type) {
     ts.algorithm_setting = type;
 }
