@@ -14,10 +14,10 @@ app.use(express.static(view));
 
 // TODO: make app asynchronous.
 app.use(fileUpload({}))
-app.use(express.static('View'))
+app.use(express.static('../View'))
 //Get Method for '/' url
 app.get('/', (req, res) => {
-    res.sendFile(index) // TODO: Change to Gitit view file.
+    res.sendFile("./index.html") // TODO: Change to Gitit view file.
 })
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
@@ -25,7 +25,7 @@ app.post('/detect', (req, res) => {
     let setting = Buffer.from(settingBinery, 'base64').toString();
     let LearnFileBinery = Buffer.from(req., 'binary').toString('base64'); //todo: get learnFile  setting
     let LearnFile = Buffer.from(LearnFileBinery, 'base64').toString();
-    let DetectFileBinery = Buffer.from(req., 'binary').toString('base64'); //todo: get learnFile  setting
+    let DetectFileBinery = Buffer.from(req., 'binary').toString('base64'); //todo: get detectFile  setting
     let DetectFile = Buffer.from(DetectFileBinery, 'base64').toString();
     detector.algorithm_Setting(setting);
     detector.learn(LearnFile);
