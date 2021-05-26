@@ -27,9 +27,11 @@ app.get('/', (req, res) => {
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
     if(req.files) {
-        detector.learn(req.body.learn_file.data.toString());  // Todo: get algorithm setting
-        detector.algorithm_Setting(req.body.setting.data.toString());    // Todo: get learnFile  setting
-        res.write(JSON.stringify(detector.detect(req.body.detect_file.data.toString()))); // Todo: get detectFile  setting
+        detector.learn(req.files.learn_file.data.toString());  // Todo: get algorithm setting
+        detector.algorithm_Setting(req.body.setting.toString());    // Todo: get learnFile  setting
+        let anomalies = detector.detect(req.files.detect_file.data.toString());
+        res.write(JSON.stringify(anomalies));
+        // res.write(JSON.stringify(detector.detect(req.files.detect_file.data.toString()))); // Todo: get detectFile  setting
     }
     res.end();
 })
