@@ -214,11 +214,11 @@ function isAnomaly(ts, cf, timeStep) {
 
 learn = function () {
 	cf = []
-	for (var i = 0; i < ts.NumOfColumns() - 1; i++) {
+	for (var i = 0; i < ts.NumOfColumns - 1; i++) {
 		var Col1 = ts.GetColumnByIndex(i);
 		var max = 0;
 		var maxIndex = -1;
-		for (var j = i + 1; j < ts.NumOfColumns(); j++) {
+		for (var j = i + 1; j < ts.NumOfColumns; j++) {
 			var Col2 = ts.GetColumnByIndex(j);
 			const correlativity = Math.abs(Pearson(Col1, Col2));
 			if (correlativity > max) {
