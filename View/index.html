@@ -42,7 +42,7 @@
 	}
 
 	.box select {
-	  background-color: #D5F2FB;
+	  background-color: #D9E4FF;
 	  color: black;
 	  padding: 12px;
 	  width: 320px;
@@ -104,6 +104,23 @@
   		color: black; 
   		border: 2px solid #008CBA;
 	}
+	.input3 {
+		background-color: #D9E4FF;
+		color: black; 
+  		border: 2px solid #008CBA;
+  		width: 780px;
+  		padding: 7px 16px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		margin: 4px 2px;
+  		transition-duration: 0.4s;
+  		cursor: pointer;
+  		box-shadow: 0 5px #999;
+  		border-radius: 15px;
+  		
+	}
 
 	.input2:active {
   		background-color: #3e8e41;
@@ -115,6 +132,7 @@
   		background-color: #008CBA;
   		color: white;
 	}
+	
 	
 	</style>
 </head>
@@ -137,7 +155,7 @@
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		<input class="input input2" type="button" value="Choose Detect File" onclick="document.getElementById('file').click();" />
 		<input type="file" style="display:none;" id="file" name="detect_file"/>
-		<input type="submit" name="submit">
+		
 		<br><br><br><br>
 		<div class="box">
 			<label style="font-family:Tahoma">Choose an algorithm:</label>
@@ -147,33 +165,15 @@
 		  		<option value="Circle">Circle Anomaly Detection</option>
 			</select>
 	</div>
+	<br><br><br>
+	<input type="submit" name="submit" class="input3 input2">
 	<form/>
 
 	<br>
 
 	<iframe name="result" width="80%" height="500"></iframe>
 
-	<table class="names" style="font-family:verdana">
-	  <tr>
-	    <th>Row Number</th>
-	    <th>Correlate Features</th> 
-	  </tr>
-	  <tr>
-	    <td>73</td>
-	    <td>A-B</td>
-	    
-	  </tr>
-	  <tr>
-	    <td>133</td>
-	    <td>C-D</td>
-	    
-	  </tr>
-	  <tr>
-	    <td>135</td>
-	    <td>C-D</td>
-	    
-	  </tr>
-	</table>
+	
 
 </body>
 </html>
