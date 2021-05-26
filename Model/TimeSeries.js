@@ -251,6 +251,7 @@ detect = function (file) {
 		anomaliesCSVString += "\n";
 	}
 	var str = anomaliesCSVString.substring(0, anomaliesCSVString.length - 1);
+	return "a-b,23\nc-d,45"
 	return str;
 }
 module.exports = { algorithm_setting, createTimeSeries, learn, detect };
