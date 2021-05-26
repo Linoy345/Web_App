@@ -133,15 +133,15 @@
 	</h3>
 	<form align="center" action="/detect" method="POST" enctype="multipart/form-data">
   		<input type="button"  class="input input2" value="Choose Learn File" onclick="document.getElementById('file').click();" />
-		<input type="file" style="display:none;" id="file" name="file"/>
+		<input type="file" style="display:none;" id="file" name="learn_file"/>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		<input class="input input2" type="button" value="Choose Detect File" onclick="document.getElementById('file').click();" />
-		<input type="file" style="display:none;" id="file" name="file"/>
+		<input type="file" style="display:none;" id="file" name="detect_file"/>
 	<form/>
   		
 	<br><br><br><br>
 
-	<div class="box">
+	<div class="box" name= "setting">
 		<label style="font-family:Tahoma">Choose an algorithm:</label>
 		<br>
 		<select >
