@@ -138,18 +138,20 @@
 		<input class="input input2" type="button" value="Choose Detect File" onclick="document.getElementById('file').click();" />
 		<input type="file" style="display:none;" id="file" name="detect_file"/>
 		<input type="submit" name="submit">
+		<br><br><br><br>
+		<div class="box">
+			<label style="font-family:Tahoma">Choose an algorithm:</label>
+			<br>
+			<select name="setting">
+		  		<option value="Simple">Simple Anomaly Detection</option>
+		  		<option value="Circle">Circle Anomaly Detection</option>
+			</select>
+	</div>
 	<form/>
   		
-	<br><br><br><br>
+	
 
-	<div class="box">
-		<label style="font-family:Tahoma">Choose an algorithm:</label>
-		<br>
-		<select name="setting" >
-	  		<option value="Simple">Simple Anomaly Detection</option>
-	  		<option value="Circle">Circle Anomaly Detection</option>
-		</select>
-	</div>
+	
 	<br>
 
 	<table class="names" style="font-family:verdana">
