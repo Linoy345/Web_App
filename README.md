@@ -58,11 +58,6 @@ The main files in our project are as follow:
 - UML:
 
 
-
-## Demo video
-https://youtu.be/lSMXU8fLzJ0
-
-
 ## Writers
 - Gitit Shapira
 - Roey Peleg
