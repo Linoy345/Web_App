@@ -131,7 +131,7 @@
 			Upload your files
 		</font>
 	</h3>
-	<form align="center" action="/detect" method="POST" enctype="multipart/form-data">
+	<form align="center" action="/detect" method="POST" enctype="multipart/form-data" target="result">
   		<input type="button"  class="input input2" value="Choose Learn File" onclick="document.getElementById('file').click();" />
 		<input type="file" style="display:none;" id="file" name="learn_file"/>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -150,6 +150,8 @@
 	<form/>
 
 	<br>
+
+	<iframe name="result" width="80%" height="500"></iframe>
 
 	<table class="names" style="font-family:verdana">
 	  <tr>
