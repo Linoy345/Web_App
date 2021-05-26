@@ -206,6 +206,7 @@ function isAnomaly(ts, cf, timeStep) {
 		const dist = Math.sqrt(Math.pow(cfX - c1, 2) + Math.pow(cfY - c2, 2))
 		return (dist > cf.threshold * 1.1)
 	}
+	else { return true }
 }
 
 learn = function () {
@@ -251,7 +252,6 @@ detect = function (file) {
 		anomaliesCSVString += "\n";
 	}
 	var str = anomaliesCSVString.substring(0, anomaliesCSVString.length - 1);
-	return "a-b,23\nc-d,45"
 	return str;
 }
 module.exports = { algorithm_setting, createTimeSeries, learn, detect };
