@@ -1,3 +1,4 @@
+const enclosingCircle = require('smallest-enclosing-circle');
 class TimeSeries {
 	constructor(csv) {
 		this.ts = []
@@ -157,65 +158,76 @@ function dev(p, l) {
 }
 
 function addCorrelation(ts, col_i1, col_i2, max) {
-	if (max > 0.9) {
-		const f1 = ts.GetColumnNames[col_i1];
-		const f2 = ts.GetColumnNames[col_i2];
-		const correlation = max;
-		const c1 = ts.GetColumnByIndex[col_i1];
-		const c2 = ts.GetColumnByIndex[col_i2];
-		const lin_reg = LinReg(c1, c2);
-		const thresh = getMaxDev(c1, c2, lin_reg);
-		var corFeat = new correlatedFeatures(f1, f2, correlation, lin_reg, thresh, center);
-		cf.push(corFeat);
+	if (algorithm_setting == "simple") {
+		if (max > 0.9) {
+			const f1 = ts.GetColumnNames[col_i1];
+			const f2 = ts.GetColumnNames[col_i2];
+			const correlation = max;
+			const c1 = ts.GetColumnByIndex[col_i1];
+			const c2 = ts.GetColumnByIndex[col_i2];
+			const lin_reg = LinReg(c1, c2);
+			const thresh = getMaxDev(c1, c2, lin_reg);
+			var corFeat = new correlatedFeatures(f1, f2, correlation, lin_reg, thresh, center);
+			cf.push(corFeat);
+		}
 	}
+	else if (algorithm_setting == "circle") {
+		if (max > 0.5) {
+			const f1 = ts.GetColumnNames[col_i1];
+			const f2 = ts.GetColumnNames[col_i2];
+			const correlation = max;
+			const c1 = ts.GetColumnByIndex[col_i1];
+			const c2 = ts.GetColumnByIndex[col_i2];
+			for (var i = 0; i < feat1.length; i++) {
+				var point = {
+					x: c1[i],
+					y: c2(feat2)[i]
+				}
+				array.push(point);
+			}
+			var mincircle = enclosingCircle(array);
+			const thresh = mincircle.r;
+			const center = new Point(mincircle.x, mincircle.y);
+			var corFeat = new correlatedFeatures(f1, f2, correlation, lin_reg, thresh, center);
+			cf.push(corFeat);
+        }
+    }
 }
 
 function isAnomaly(ts, cf, timeStep) {
-	if (chosenAlgorithm = "simple") {
+	if (chosenAlgorithm == "simple") {
 		var Column1 = ts.GetColumn(cf.feature1);
 		var Column2 = ts.GetColumn(cf.feature2);
 		currPoint = new Point(Column1[timeStep], Column2[timeStep]);
 		currDev = dev(currPoint, cf.lin_reg);
 		return (currDev > cf.threshold * 1.1);
 	}
+	else if (chosenAlgorithm == "circle") {
+		const cfX = cf.center.x;
+		const cfY = cf.center.y;
+		const c1 = ts.GetColumn(cf.feat1)[i];
+		const c2 = ts.GetColumn(cf.feat2)[i];
+		const dist = Math.sqrt(Math.pow(cfX - c1, 2) + Math.pow(cfY - c2, 2))
+		return (dist > cf.threshold * 1.1)
+	}
 }
 
 learn = function () {
 	cf = []
-	if (chosenAlgorithm == "simple") {
-		for (var i = 0; i < ts.NumOfColumns() - 1; i++) {
-			var Col1 = ts.GetColumnByIndex(i);
-			var max = 0;
-			var maxIndex = -1;
-			for (var j = i + 1; j < ts.NumOfColumns(); j++) {
-				var Col2 = ts.GetColumnByIndex(j);
-				const correlativity = Math.abs(Pearson(Col1, Col2));
-				if (correlativity > max) {
-					max = correlativity;
-					maxIndex = j;
-				}
-			}
-			if (maxIndex >= 0) {
-				addCorrelation(ts, i, j, max)
+	for (var i = 0; i < ts.NumOfColumns() - 1; i++) {
+		var Col1 = ts.GetColumnByIndex(i);
+		var max = 0;
+		var maxIndex = -1;
+		for (var j = i + 1; j < ts.NumOfColumns(); j++) {
+			var Col2 = ts.GetColumnByIndex(j);
+			const correlativity = Math.abs(Pearson(Col1, Col2));
+			if (correlativity > max) {
+				max = correlativity;
+				maxIndex = j;
 			}
 		}
-	}
-	if (chosenAlgorithm == "circle") {
-		for (var i = 0; i < ts.NumOfColumns() - 1; i++) {
-			var Col1 = ts.GetColumnByIndex(i);
-			var max = 0;
-			var maxIndex = -1;
-			for (var j = i + 1; j < ts.NumOfColumns(); j++) {
-				var Col2 = ts.GetColumnByIndex(j);
-				const correlativity = Math.abs(Pearson(Col1, Col2));
-				if (correlativity > max) {
-					max = correlativity;
-					maxIndex = j;
-				}
-			}
-			if (maxIndex >= 0) {
-				addCorrelation(ts, i, j, max)
-			}
+		if (maxIndex >= 0) {
+			addCorrelation(ts, i, j, max)
 		}
 	}
 }
