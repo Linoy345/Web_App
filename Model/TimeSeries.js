@@ -249,6 +249,7 @@ detect = function (file) {
 	var anomaliesCSVString = "";
 	for (var i = 0; i < anomalies.length; i++) {
 		anomaliesCSVString += anomalies[i].to_string();
+		console.log(anomalies[i].to_string());
 		anomaliesCSVString += "\n";
 	}
 	var str = anomaliesCSVString.substring(0, anomaliesCSVString.length - 1);
