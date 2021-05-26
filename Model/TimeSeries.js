@@ -79,7 +79,17 @@ class AnomalyReport {
 		this.timeStep = timeStep;
 		this.val1 = val1;
 		this.val2 = val2;
-	}
+		this.to_string = function () {
+			var s = description;
+			s += ",";
+			s += timeStep;
+			s += ",";
+			s += val1;
+			s += ",";
+			s += val2;
+			return s;
+		};
+	} 
 }
 var cf = [];
 var ts;
@@ -190,6 +200,24 @@ learn = function () {
 			}
 		}
 	}
+	if (chosenAlgorithm == "circle") {
+		for (var i = 0; i < ts.NumOfColumns() - 1; i++) {
+			var Col1 = ts.GetColumnByIndex(i);
+			var max = 0;
+			var maxIndex = -1;
+			for (var j = i + 1; j < ts.NumOfColumns(); j++) {
+				var Col2 = ts.GetColumnByIndex(j);
+				const correlativity = Math.abs(Pearson(Col1, Col2));
+				if (correlativity > max) {
+					max = correlativity;
+					maxIndex = j;
+				}
+			}
+			if (maxIndex >= 0) {
+				addCorrelation(ts, i, j, max)
+			}
+		}
+	}
 }
 
 getNormalModel = function () {
@@ -209,6 +237,12 @@ detect = function (file) {
 			}
 		}
 	}
-	return anomalies;
+	var anomaliesCSVString = "";
+	for (var i = 0; i < anomalies.length; i++) {
+		anomaliesCSVString += anomalies[i].to_string();
+		anomaliesCSVString += "\n";
+	}
+	str = anomaliesCSVString.substring(0, str.length - 1);
+	return str;
 }
 module.exports = { algorithm_setting, createTimeSeries, learn, detect };
