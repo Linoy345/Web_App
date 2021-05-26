@@ -27,9 +27,9 @@ app.get('/', (req, res) => {
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
     if(req.files) {
-        detector.learn(req.learn_file.data.toString());  // Todo: get algorithm setting
-        detector.algorithm_Setting(req.Simple.data.toString());    // Todo: get learnFile  setting
-        res.write(JSON.stringify(detector.detect(req.setting.data.toString()))); // Todo: get detectFile  setting
+        detector.learn(req.body.learn_file.data.toString());  // Todo: get algorithm setting
+        detector.algorithm_Setting(req.body.setting.data.toString());    // Todo: get learnFile  setting
+        res.write(JSON.stringify(detector.detect(req.body.setting.data.toString()))); // Todo: get detectFile  setting
     }
     res.end();
 })
