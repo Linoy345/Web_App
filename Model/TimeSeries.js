@@ -158,7 +158,7 @@ function dev(p, l) {
 }
 
 function addCorrelation(ts, col_i1, col_i2, max) {
-	if (algorithm_setting == "simple") {
+	if (algorithm_setting == "Simple") {
 		if (max > 0.9) {
 			const f1 = ts.GetColumnNames[col_i1];
 			const f2 = ts.GetColumnNames[col_i2];
@@ -171,7 +171,7 @@ function addCorrelation(ts, col_i1, col_i2, max) {
 			cf.push(corFeat);
 		}
 	}
-	else if (algorithm_setting == "circle") {
+	else if (algorithm_setting == "Circle") {
 		if (max > 0.5) {
 			const f1 = ts.GetColumnNames[col_i1];
 			const f2 = ts.GetColumnNames[col_i2];
@@ -195,14 +195,14 @@ function addCorrelation(ts, col_i1, col_i2, max) {
 }
 
 function isAnomaly(ts, cf, timeStep) {
-	if (chosenAlgorithm == "simple") {
+	if (chosenAlgorithm == "Simple") {
 		var Column1 = ts.GetColumn(cf.feature1);
 		var Column2 = ts.GetColumn(cf.feature2);
 		currPoint = new Point(Column1[timeStep], Column2[timeStep]);
 		currDev = dev(currPoint, cf.lin_reg);
 		return (currDev > cf.threshold * 1.1);
 	}
-	else if (chosenAlgorithm == "circle") {
+	else if (chosenAlgorithm == "Circle") {
 		const cfX = cf.center.x;
 		const cfY = cf.center.y;
 		const c1 = ts.GetColumn(cf.feat1)[i];
