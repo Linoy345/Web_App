@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 })
 //Post Method for '/search' url
 app.post('/detect', (req, res) => {
-    if(req.files) {
+    if (req.files) {
         detector.learn(req.files.learn_file.data.toString());
         detector.algorithm_Setting(req.body.setting.toString());
         let anomalies = detector.detect(req.files.detect_file.data.toString());
