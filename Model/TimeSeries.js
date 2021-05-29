@@ -173,8 +173,6 @@ function addCorrelation(ts, col_i1, col_i2, max) {
 		if (max > 0.9) {
 			const f1 = ts.GetColumnNames()[col_i1];
 			const f2 = ts.GetColumnNames()[col_i2];
-			console.log(f1 + " " + f2);
-			console.log(col_i1 + " " + col_i2);
 			const correlation = max;
 			const c1 = ts.GetColumnByIndex(col_i1);
 			const c2 = ts.GetColumnByIndex(col_i2);
@@ -187,8 +185,8 @@ function addCorrelation(ts, col_i1, col_i2, max) {
 	}
 	else if (chosenAlgorithm == "Circle") {
 		if (max > 0.5) {
-			const f1 = ts.GetColumnNames(col_i1);
-			const f2 = ts.GetColumnNames(col_i2);
+			const f1 = ts.GetColumnNames()[col_i1];
+			const f2 = ts.GetColumnNames()[col_i2];
 			const correlation = max;
 			var array = []
 			const c1 = ts.GetColumnByIndex(col_i1);
@@ -210,7 +208,6 @@ function isAnomaly(ts, cf, timeStep) {
 	if (chosenAlgorithm == "Simple") {
 		var Column1 = ts.GetColumn(cf.feat1);
 		var Column2 = ts.GetColumn(cf.feat2);
-		console.log(cf.feat1, cf.feat2);
 		currPoint = new Point(Column1[timeStep], Column2[timeStep]);
 		currDev = dev(currPoint, cf.lin_reg);
 		return (currDev > cf.threshold * 1.1);
