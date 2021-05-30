@@ -47,11 +47,12 @@ Make sure to click the ```Submit``` button after uploading files and choosing al
 The main files in our project are as follow:
 
 - Controller:
-    - Server.js - Web app server.
+    - Server.js
+    - buildTable.js
 - Model
-
-
-
+  -Detector.js
+  -TimeSeries.js
+  -AnomalyTimeSteps.js
 - View:
     - index.html - Display the app screen.
 
