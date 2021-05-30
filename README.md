@@ -16,7 +16,7 @@ This app allows a user to upload to our server a training and flight data file. 
 
 - Download WebStrom/VS Code to run the server.
 - Java Script- Node JS.
-- Download all required packages with: "npm install".
+- Download all required packages with the command: "npm install".
 
 ## Getting Started
 
@@ -36,8 +36,8 @@ A screenshot is attached:
 Make sure to click the ```Submit``` button after uploading files and choosing algorithm setting.
 
 ## Features
-- Choosing Learn\Data file CSV - click on the ```Choose Learn File``` \ ```Choose Detect File```. You will be asked to choose a CSV file that contains the flight info (a CSV file in which flight data sampled at some rate is recorded).
-- Choose an algorithm:- This allows you to select an anomaly detection algorithm. The algorithm will detect at what moments in time an anomaly occurred and will display it in a list.
+- Choose Learn\Data file CSV - click on the ```Choose Learn File``` \ ```Choose Detect File```. You will be asked to upload a CSV file that contains the flight info (a CSV file in which flight data sampled at some rate is recorded).
+- Choose an algorithm:- This allows you to select an anomaly detection algorithm. The algorithm will detect at what moments in time an anomaly occurred and will display it in a table
 - You can use one of our demo CSV files: 
   1. https://github.com/yair2121/Web_App/blob/a495f63391a41c25430f300ea349dd8f2732a7e3/Demo%20files/train.csv - file that containing the learning data.
   2. https://github.com/yair2121/Web_App/blob/a495f63391a41c25430f300ea349dd8f2732a7e3/Demo%20files/test.csv - real Flight Data for anomalies detection. 
