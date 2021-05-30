@@ -10,11 +10,11 @@ function createTable(anomalies) {
     let table = document.createElement('table');
     let tr = table.insertRow(-1);
 
-    const th1 = document.createElement("th1"); // TABLE HEADER.
+    const th1 = document.createElement("th"); // TABLE HEADER.
     th1.innerHTML = "Correlate Feature";
     tr.appendChild(th1);
 
-    const th2 = document.createElement("th2"); // TABLE HEADER.
+    const th2 = document.createElement("th"); // TABLE HEADER.
     th2.innerHTML = "Row Number";
     tr.appendChild(th2);
     for (let i = 0; i < map.size; i++) {
