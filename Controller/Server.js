@@ -23,7 +23,8 @@ app.post('/detect', (req, res) => {
         detector.learn(req.files.learn_file.data.toString());
         detector.algorithm_Setting(req.body.setting.toString());
         let anomalies = detector.detect(req.files.detect_file.data.toString());
-        res.write(table.createTable(anomalies).outerHTML);
+        let anomalTable = table.createTable(anomalies);
+        res.write(anomalTable);
     }
     res.end();
 })
