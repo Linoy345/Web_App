@@ -50,9 +50,9 @@ The main files in our project are as follow:
     - Server.js
     - buildTable.js
 - Model:
-  -Detector.js
-  -TimeSeries.js
-  -AnomalyTimeSteps.js
+    - Detector.js
+    - TimeSeries.js
+    - AnomalyTimeSteps.js
 - View:
     - index.html - Display the app screen.
 
