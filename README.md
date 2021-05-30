@@ -60,7 +60,7 @@ The main files in our project are as follow:
 - UML:
 
 ## Demo video
-https://youtu.be/lSMXU8fLzJ0
+https://www.youtube.com/watch?v=lSMXU8fLzJ0
 
 ## Writers
 - Gitit Shapira
