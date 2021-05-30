@@ -4,10 +4,6 @@ const fileUpload = require('express-fileupload');
 const detector = require('../Model/Detector');
 const table = require('../Controller/buildTable');
 
-// const path = require('path');
-// const index = path.resolve('../View/index.html');
-// const view = path.resolve('../View');
-
 const app = express();
 
 //define app uses
@@ -27,8 +23,7 @@ app.post('/detect', (req, res) => {
         detector.learn(req.files.learn_file.data.toString());
         detector.algorithm_Setting(req.body.setting.toString());
         let anomalies = detector.detect(req.files.detect_file.data.toString());
-        table.createTable(anomalies);
-        res.write(JSON.stringify(anomalies));
+        res.write(table.createTable(anomalies).outerHTML);
     }
     res.end();
 })
