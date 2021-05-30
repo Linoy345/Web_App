@@ -49,7 +49,7 @@ The main files in our project are as follow:
 - Controller:
     - Server.js
     - buildTable.js
-- Model
+- Model:
   -Detector.js
   -TimeSeries.js
   -AnomalyTimeSteps.js
