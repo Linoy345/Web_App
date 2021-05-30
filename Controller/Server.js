@@ -17,16 +17,19 @@ app.use(express.static('../View'));
 app.get('/', (req, res) => {
     res.sendFile("./index.html"); // TODO: Change to Roy view file.
 })
-//Post Method for '/search' url
+
+//Post Method for '/detect' url
 app.post('/detect', (req, res) => {
     if (req.files) {
-        detector.learn(req.files.learn_file.data.toString());
-        detector.algorithm_Setting(req.body.setting.toString());
-        let anomalies = detector.detect(req.files.detect_file.data.toString());
+        let setting = req.body.setting.toString();
+        let learnFile = req.files.learn_file.data.toString();
+        let detectFile = req.files.detect_file.data.toString();
+        let anomalies = detector.learnDetect(learnFile, detectFile, setting);
+        anomalies = detector.learnDetect(learnFile, detectFile, setting);
         let anomalTable = table.createTable(anomalies);
         res.write(anomalTable);
+        res.end();
     }
-    res.end();
 })
 //starting server on port 8080
 app.listen(8080, ()=>console.log("server started at 8080"))

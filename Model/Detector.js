@@ -11,4 +11,10 @@ function detect(detectFile) {
     //ts.getNormalModel();
 }
 
-module.exports = {algorithm_Setting, learn, detect};
+function learnDetect(learnFile, detectFile, setting){
+    learn(learnFile);
+    algorithm_Setting(setting);
+    return detect(detectFile);
+}
+module.exports = {learnDetect};
+// module.exports = {algorithm_Setting, learn, detect};
