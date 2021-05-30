@@ -119,7 +119,6 @@ function AVG(c) {
 
 function VAR(c) {
 	const avg = AVG(c);
-	//console.log(avg);
 	var variance = 0;
 	for (var i = 0; i < c.length; i++) {
 		variance += (c[i] - avg) * (c[i] - avg);
@@ -220,15 +219,10 @@ function isAnomaly(ts, cf, timeStep) {
 		const dist = Math.sqrt(Math.pow(cfX - c1, 2) + Math.pow(cfY - c2, 2))
 		return (dist > cf.threshold * 1.1)
 	}
-	else {
-		console.log(chosenAlgorithm)
-    }
 }
 
 learn = function () {
-	
 	cf = []
-	console.log("learn:");
 	for (var i = 0; i < ts.NumOfColumns() - 1; i++) {
 		var Col1 = ts.GetColumnByIndex(i);
 		var max = 0;
@@ -252,7 +246,6 @@ getNormalModel = function () {
 }
 
 detect = function (file) {
-	console.log("detect");
 	ts = new TimeSeries(file);
 	var anomalies = [];
 	const numOfRows = ts.NumOfRows();
