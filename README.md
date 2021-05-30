@@ -16,6 +16,7 @@ This app allows a user to upload to our server a training and flight data file. 
 
 - Download WebStrom/VS Code to run the server.
 - Java Script- Node JS.
+- Download all required packages with: "npm install".
 
 ## Getting Started
 
